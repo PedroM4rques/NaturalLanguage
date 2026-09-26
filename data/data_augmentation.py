@@ -18,14 +18,13 @@ def is_valid_keyword(kw: str) -> bool:
     return (len(kw) > 1) and (not kw.isdigit()) and (kw not in STOP_WORDS)
 
 
-def build_keywords(df1: pd.DataFrame, df2: pd.DataFrame) -> set:
+def build_keywords(df: pd.DataFrame) -> set:
 
     keywords = set()
 
-    for df in (df1, df2):
-        for _, row in df.iterrows():
-            if pd.notna(row['keywords']):
-                keywords.update(kw for kw in row['keywords'].split(',') if is_valid_keyword(kw))
+    for _, row in df.iterrows():
+        if pd.notna(row['keywords']):
+            keywords.update(kw for kw in row['keywords'].split(',') if is_valid_keyword(kw))
     return keywords
 
 
@@ -70,7 +69,7 @@ def augment_keywords(df: pd.DataFrame, keywords: set) -> pd.DataFrame:
 
 
 
-keywords = build_keywords(train_df, test_df)
+keywords = build_keywords(train_df)    # só train: o test não pode ser usado para treino
 keywords = keywords - least_informative(train_df, keywords, config.DROP_FRAC)    # só train tem labels
 
 train_df = augment_keywords(train_df, keywords)
