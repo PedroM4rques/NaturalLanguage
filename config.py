@@ -10,3 +10,5 @@ RAW_TEST_PATH  = RAW_DATA_DIR / 'test_no_labels.csv'
 
 TRAIN_PATH = DATA_DIR / 'train.csv'
 TEST_PATH  = DATA_DIR / 'test.csv'
+
+DROP_FRAC = 0.05    # fração de keywords menos informativas a remover no data augmentation
