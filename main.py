@@ -1,11 +1,14 @@
 import os
 import pandas as pd
 
+import config
+
+
 
 def main():
 
-    train_df = pd.read_csv('./data/train.csv', sep=';')
-    test_df  = pd.read_csv('./data/test.csv', sep=';')
+    train_df = pd.read_csv(config.TRAIN_PATH, sep=';')
+    test_df  = pd.read_csv(config.TEST_PATH, sep=';')
 
 
 
