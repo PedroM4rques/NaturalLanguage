@@ -1,0 +1,11 @@
+-> Fall back na main: pode ser um Naive Bayes por exemplo
+
+-> +1 modelo
+
+-> Refactor 
+
+-> Fazer plano dos resultados a apresentar no report:
+    -> Accuracy das rows com data leak e sem data leak
+    -> Params da log-regression (?)
+    -> Why log-regression? Becaus linear models can essentially chose features with reg.
+
