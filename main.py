@@ -1,5 +1,6 @@
 import pandas as pd
-from rapidfuzz import fuzz, process
+from rapidfuzz import process
+from rapidfuzz.distance import Levenshtein
 
 from sklearn.metrics import accuracy_score, f1_score
 
@@ -20,12 +21,13 @@ def fuzzy_match(keywords: str, classes: list[str]) -> tuple[str | None, float]:
         if i + 1 < len(tokens):
             candidates.append(tok + tokens[i + 1])
 
+    # minimum edit distance (Levenshtein: ins/del/sub = 1), normalizada: 1 - dist / max(len(a), len(b))
     # melhor score; em empate, a keyword que aparece primeiro
     best_class, best_score = None, 0.0
     for cand in candidates:
-        cls, score, _ = process.extractOne(cand, classes, scorer=fuzz.ratio)
-        if score / 100 > best_score:
-            best_class, best_score = cls, score / 100
+        cls, score, _ = process.extractOne(cand, classes, scorer=Levenshtein.normalized_similarity)
+        if score > best_score:
+            best_class, best_score = cls, score
 
     return best_class, best_score
 
@@ -35,7 +37,7 @@ def predict(df: pd.DataFrame, classes: list[str], fallback: str) -> pd.DataFrame
     matches = df['keywords'].apply(lambda kw: fuzzy_match(kw, classes))
 
     out = pd.DataFrame({'match': matches.str[0], 'score': matches.str[1]}, index=df.index)
-    out['matched'] = out['score'] >= config.FUZZY_THRESHOLD
+    out['matched'] = out['score'] > config.MED_THRESHOLD
     out['pred']    = out['match'].where(out['matched'], fallback)
 
     return out
@@ -53,7 +55,7 @@ def main():
     y   = train_df['medical_specialty']
     out = predict(train_df, classes, most_common)
 
-    print(f"Fuzzy matcher, every keyword (threshold = {config.FUZZY_THRESHOLD}) | fallback = '{most_common}'\n")
+    print(f"Min edit distance matcher, every keyword (threshold > {config.MED_THRESHOLD}) | fallback = '{most_common}'\n")
     print(f"Accuracy:         {accuracy_score(y, out['pred']):.4f}")
     print(f"Macro F1:         {f1_score(y, out['pred'], average='macro'):.4f}")
     print(f"Coverage (match): {out['matched'].mean():.1%}  ({out['matched'].sum()}/{len(out)})")
