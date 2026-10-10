@@ -15,7 +15,7 @@ def split_keywords(keywords: str) -> list[str]:
 
 def build_model():
 
-    # one-hot: cada keyword é uma feature binária (presente/ausente)
+    # onehot
     vectorizer = CountVectorizer(tokenizer=split_keywords, token_pattern=None, lowercase=False, binary=True)
     clf        = LogisticRegression(C=config.LR_C, class_weight='balanced', max_iter=3000)
 
@@ -33,7 +33,7 @@ def main():
     classes = sorted(y.unique())
 
 
-    # ---- avaliação: cross-validation estratificada no train (o test não tem labels)
+    # ---- k-fold
     cv   = StratifiedKFold(n_splits=config.CV_FOLDS, shuffle=True, random_state=config.SEED)
     pred = cross_val_predict(build_model(), X_train, y, cv=cv)
 
@@ -49,12 +49,11 @@ def main():
     print(f"\n{'FAIL' if len(below) else 'OK'}: {len(below)} class(es) with F1 below 25%{': ' + ', '.join(below.index) if len(below) else ''}")
 
 
-    # ---- test -> results.txt (uma label por linha, mesma ordem que test_no_labels.csv, sem header)
+    # results.txt
     model = build_model().fit(X_train, y)
     print(f"\nVocabulary: {len(model[0].vocabulary_)} keywords")
 
-    # linhas sem nenhuma feature ativa (ex: linha vazia ';;;' no test) -> só o intercept decidiria, e com
-    # class_weight='balanced' o intercept não reflete a frequência das classes -> fallback para a classe mais comum
+    # linhas vazias
     most_common = y.mode()[0]
     no_features = model[0].transform(X_test).getnnz(axis=1) == 0
 

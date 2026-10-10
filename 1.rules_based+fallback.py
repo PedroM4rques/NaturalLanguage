@@ -14,9 +14,8 @@ def fuzzy_match(keywords: str, classes: list[str]) -> tuple[str | None, float]:
 
     candidates = [kw for kw in keywords.split(',') if kw]
 
-    # minimum edit distance (Levenshtein: ins/del/sub = 1), normalizada: 1 - dist / max(len(a), len(b))
-    # melhor score; em empate, a keyword que aparece primeiro
-    best_class, best_score = None, 0.0
+    # MED: melhor score; em empate, a keyword que aparece primeiro
+    best_class, best_score = None, 0
     for cand in candidates:
         cls, score, _ = process.extractOne(cand, classes, scorer=Levenshtein.normalized_similarity)
         if score > best_score:
@@ -61,8 +60,7 @@ def main():
     below = f1[f1 < 0.25]
     print(f"\n{'FAIL' if len(below) else 'OK'}: {len(below)} class(es) with F1 below 25%{': ' + ', '.join(below.index) if len(below) else ''}")
 
-
-    # ---- test -> results.txt (uma label por linha, mesma ordem que test_no_labels.csv, sem header)
+    # results.txt
     test_out = predict(test_df, classes, most_common)
     test_out['pred'].to_csv(config.RESULTS_PATH, index=False, header=False)
 
