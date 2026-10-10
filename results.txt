@@ -1,6 +1,6 @@
 neurology
 cardiovascular-pulmonary
-orthopedic
+general medicine
 radiology
 surgery
 neurology
@@ -8,24 +8,24 @@ cardiovascular-pulmonary
 surgery
 surgery
 ophthalmology
-surgery
+orthopedic
 surgery
 orthopedic
 surgery
-surgery
-gastroenterology
-surgery
-gastroenterology
-surgery
-surgery
-general medicine
-orthopedic
 neurosurgery
+gastroenterology
+surgery
+gastroenterology
+psychiatry-psychology
+surgery
+general medicine
+orthopedic
+general medicine
 obstetrics-gynecology
 surgery
 cardiovascular-pulmonary
 surgery
-surgery
+cardiovascular-pulmonary
 cardiovascular-pulmonary
 orthopedic
 surgery
@@ -37,18 +37,18 @@ general medicine
 general medicine
 surgery
 surgery
-surgery
-surgery
-surgery
+cardiovascular-pulmonary
+general medicine
+general medicine
 cardiovascular-pulmonary
 obstetrics-gynecology
 orthopedic
 surgery
 obstetrics-gynecology
-radiology
+general medicine
 surgery
-surgery
-surgery
+neurosurgery
+general medicine
 surgery
 surgery
 surgery
@@ -65,11 +65,11 @@ radiology
 ophthalmology
 orthopedic
 surgery
+cardiovascular-pulmonary
 surgery
-surgery
-surgery
-neurosurgery
-surgery
+general medicine
+general medicine
+ophthalmology
 general medicine
 cardiovascular-pulmonary
 surgery
@@ -77,17 +77,17 @@ radiology
 surgery
 surgery
 neurology
-surgery
+neurology
 surgery
 cardiovascular-pulmonary
 orthopedic
 surgery
 obstetrics-gynecology
+neurology
 surgery
-surgery
+orthopedic
 radiology
-radiology
-surgery
+cardiovascular-pulmonary
 neurosurgery
 radiology
 obstetrics-gynecology
@@ -95,14 +95,14 @@ radiology
 surgery
 surgery
 general medicine
-surgery
-surgery
-surgery
-surgery
+psychiatry-psychology
+general medicine
 surgery
 cardiovascular-pulmonary
 surgery
+cardiovascular-pulmonary
 surgery
+general medicine
 surgery
 surgery
 neurology
@@ -111,16 +111,16 @@ orthopedic
 surgery
 surgery
 surgery
-surgery
 cardiovascular-pulmonary
-surgery
+cardiovascular-pulmonary
+general medicine
 radiology
 surgery
+general medicine
 surgery
-surgery
-surgery
-surgery
-surgery
+general medicine
+psychiatry-psychology
+obstetrics-gynecology
 neurosurgery
 surgery
 cardiovascular-pulmonary
@@ -131,46 +131,46 @@ surgery
 surgery
 surgery
 surgery
-surgery
+ophthalmology
 surgery
 surgery
 cardiovascular-pulmonary
 surgery
-surgery
+general medicine
 surgery
 obstetrics-gynecology
 ophthalmology
 gastroenterology
-surgery
-surgery
-surgery
-surgery
+orthopedic
+general medicine
+gastroenterology
+cardiovascular-pulmonary
 radiology
 surgery
 radiology
 radiology
-surgery
+psychiatry-psychology
 surgery
 psychiatry-psychology
 cardiovascular-pulmonary
 gastroenterology
 surgery
 radiology
+neurosurgery
+neurosurgery
+surgery
+neurosurgery
 surgery
 surgery
-surgery
-surgery
-surgery
-surgery
-surgery
-surgery
+general medicine
+neurology
 surgery
 surgery
 orthopedic
 ophthalmology
 neurosurgery
 psychiatry-psychology
-surgery
+psychiatry-psychology
 general medicine
 orthopedic
 general medicine
@@ -181,15 +181,15 @@ surgery
 surgery
 obstetrics-gynecology
 surgery
-surgery
+cardiovascular-pulmonary
 surgery
 radiology
-surgery
+general medicine
 surgery
 surgery
 surgery
 gastroenterology
-surgery
+cardiovascular-pulmonary
 cardiovascular-pulmonary
 surgery
 surgery
@@ -218,22 +218,22 @@ orthopedic
 surgery
 surgery
 gastroenterology
-surgery
+cardiovascular-pulmonary
 neurology
 surgery
-surgery
+general medicine
 radiology
 ophthalmology
 cardiovascular-pulmonary
 surgery
 surgery
-surgery
+neurosurgery
 cardiovascular-pulmonary
-surgery
+neurosurgery
 radiology
 surgery
 radiology
-surgery
+cardiovascular-pulmonary
 surgery
 surgery
 cardiovascular-pulmonary
@@ -256,7 +256,7 @@ radiology
 orthopedic
 surgery
 dermatology
-radiology
+obstetrics-gynecology
 surgery
 cardiovascular-pulmonary
 surgery
@@ -282,15 +282,15 @@ obstetrics-gynecology
 neurology
 cardiovascular-pulmonary
 cardiovascular-pulmonary
-surgery
+radiology
 obstetrics-gynecology
 orthopedic
-surgery
-surgery
-surgery
+general medicine
+general medicine
+orthopedic
 neurology
 ophthalmology
-surgery
+general medicine
 surgery
 cardiovascular-pulmonary
 surgery
@@ -299,54 +299,54 @@ neurosurgery
 surgery
 neurology
 surgery
-surgery
+general medicine
 orthopedic
-surgery
+gastroenterology
 orthopedic
 neurosurgery
-radiology
+general medicine
 orthopedic
 surgery
 orthopedic
 neurosurgery
 gastroenterology
 neurology
+general medicine
+psychiatry-psychology
+general medicine
+neurosurgery
+surgery
+neurology
+orthopedic
+radiology
+surgery
+obstetrics-gynecology
+obstetrics-gynecology
+gastroenterology
+gastroenterology
+cardiovascular-pulmonary
+surgery
+general medicine
+surgery
+surgery
+surgery
+surgery
+surgery
+gastroenterology
+neurology
+surgery
 surgery
 psychiatry-psychology
 surgery
-neurosurgery
 surgery
-gastroenterology
-orthopedic
-radiology
 surgery
-obstetrics-gynecology
-surgery
-gastroenterology
-gastroenterology
 cardiovascular-pulmonary
-surgery
-surgery
-surgery
-surgery
-surgery
-surgery
-surgery
-gastroenterology
+cardiovascular-pulmonary
+orthopedic
 neurology
-surgery
-surgery
-surgery
-surgery
-surgery
-surgery
-surgery
-cardiovascular-pulmonary
-orthopedic
-surgery
 radiology
 dermatology
-radiology
+general medicine
 psychiatry-psychology
 orthopedic
 radiology
@@ -359,7 +359,7 @@ surgery
 radiology
 dermatology
 general medicine
-orthopedic
+general medicine
 surgery
 orthopedic
 surgery
@@ -368,14 +368,14 @@ neurosurgery
 general medicine
 surgery
 cardiovascular-pulmonary
-surgery
+neurology
 gastroenterology
 neurosurgery
 radiology
 cardiovascular-pulmonary
 surgery
-surgery
-surgery
+obstetrics-gynecology
+obstetrics-gynecology
 gastroenterology
 surgery
 surgery
@@ -383,8 +383,8 @@ radiology
 surgery
 obstetrics-gynecology
 surgery
-surgery
-surgery
+neurology
+general medicine
 cardiovascular-pulmonary
 orthopedic
 surgery
