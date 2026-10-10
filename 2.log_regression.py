@@ -58,7 +58,7 @@ def main():
     no_features = model[0].transform(X_test).getnnz(axis=1) == 0
 
     test_pred = pd.Series(model.predict(X_test)).mask(no_features, most_common)
-    test_pred.to_csv(config.RESULTS_PATH, index=False, header=False)
+    config.restore_label_case(test_pred).to_csv(config.RESULTS_PATH, index=False, header=False)
 
     print(f"Test: {len(test_pred)} predictions -> {config.RESULTS_PATH.name} ({no_features.sum()} without features -> '{most_common}')")
 

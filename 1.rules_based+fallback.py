@@ -62,7 +62,7 @@ def main():
 
     # results.txt
     test_out = predict(test_df, classes, most_common)
-    test_out['pred'].to_csv(config.RESULTS_PATH, index=False, header=False)
+    config.restore_label_case(test_out['pred']).to_csv(config.RESULTS_PATH, index=False, header=False)
 
     print(f"\nTest: {test_out['matched'].sum()}/{len(test_out)} matched -> {config.RESULTS_PATH.name} ({len(test_out)} lines)")
 

@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import pandas as pd
+
 
 ROOT_DIR     = Path(__file__).resolve().parent
 DATA_DIR     = ROOT_DIR / 'data'
@@ -24,3 +26,18 @@ _MED_THRESHOLD  = MED_THRESHOLD
 LR_C            = 0.015 # inverso da força de regularização (L2) da logistic regression (grid search CV macro F1; plateau entre 0.01 e 0.07)
 CV_FOLDS        = 5
 SEED            = 0
+
+# 3.TODO.py
+
+...
+
+
+# aux functions
+
+def restore_label_case(pred: pd.Series) -> pd.Series:
+    """Mapeia as labels lowercased (clean_data) de volta para a capitalização original do raw train (ex: 'general medicine' -> 'General Medicine')."""
+
+    raw_labels = pd.read_csv(RAW_TRAIN_PATH, sep=';')['medical_specialty'].dropna().str.strip()
+    mapping    = {label.lower(): label for label in raw_labels}
+
+    return pred.map(mapping)
