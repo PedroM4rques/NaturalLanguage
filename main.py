@@ -12,14 +12,7 @@ def fuzzy_match(keywords: str, classes: list[str]) -> tuple[str | None, float]:
     if pd.isna(keywords):
         return None, 0.0
 
-    tokens = [kw for kw in keywords.split(',') if kw]
-
-    # cada keyword + cada par de keywords seguidas ('cardiovascular,pulmonary' -> 'cardiovascularpulmonary')
-    candidates = []
-    for i, tok in enumerate(tokens):
-        candidates.append(tok)
-        if i + 1 < len(tokens):
-            candidates.append(tok + tokens[i + 1])
+    candidates = [kw for kw in keywords.split(',') if kw]
 
     # minimum edit distance (Levenshtein: ins/del/sub = 1), normalizada: 1 - dist / max(len(a), len(b))
     # melhor score; em empate, a keyword que aparece primeiro
