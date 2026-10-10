@@ -23,7 +23,7 @@ DROP_FRAC       = 0.05    # fração de keywords menos informativas a remover no
 # 2.log-regression ############
 
 _MED_THRESHOLD  = MED_THRESHOLD
-LR_C            = 0.015 # inverso da força de regularização (L2) da logistic regression (grid search CV macro F1; plateau entre 0.01 e 0.07)
+LR_C            = 0.015 # 1/L2_regularization
 CV_FOLDS        = 5
 SEED            = 0
 

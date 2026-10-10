@@ -17,7 +17,7 @@ def build_model():
 
     # onehot
     vectorizer = CountVectorizer(tokenizer=split_keywords, token_pattern=None, lowercase=False, binary=True)
-    clf        = LogisticRegression(C=config.LR_C, class_weight='balanced', max_iter=3000)
+    clf        = LogisticRegression(C=config.LR_C, l1_ratio=0, class_weight='balanced', max_iter=3000)
 
     return make_pipeline(vectorizer, clf)
 
