@@ -15,8 +15,6 @@ surgery
 surgery
 gastroenterology
 surgery
-orthopedic
-surgery
 gastroenterology
 surgery
 surgery
@@ -76,7 +74,6 @@ general medicine
 cardiovascular-pulmonary
 surgery
 radiology
-surgery
 surgery
 surgery
 neurology
@@ -169,7 +166,6 @@ surgery
 surgery
 surgery
 surgery
-surgery
 orthopedic
 ophthalmology
 neurosurgery
@@ -238,8 +234,6 @@ radiology
 surgery
 radiology
 surgery
-surgery
-orthopedic
 surgery
 surgery
 cardiovascular-pulmonary
@@ -322,9 +316,7 @@ psychiatry-psychology
 surgery
 neurosurgery
 surgery
-orthopedic
-neurology
-ophthalmology
+dermatology
 orthopedic
 radiology
 surgery
@@ -355,8 +347,6 @@ surgery
 radiology
 dermatology
 radiology
-orthopedic
-orthopedic
 psychiatry-psychology
 orthopedic
 radiology
@@ -374,7 +364,6 @@ surgery
 orthopedic
 surgery
 neurology
-surgery
 neurosurgery
 general medicine
 surgery
