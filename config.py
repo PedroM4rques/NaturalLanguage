@@ -27,8 +27,34 @@ LR_C            = 0.015 # 1/L2_regularization
 CV_FOLDS        = 5
 SEED            = 0
 
-# 3.TODO.py
+# 3.BERT
 
+BERT_MODELS = {
+    'clinicalbert': dict(name='emilyalsentzer/Bio_ClinicalBERT', max_len=512, chunk_words=250, lr_c=50),   # https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT, cased
+    'spubmedbert': dict(name='pritamdeka/S-PubMedBert-MS-MARCO', max_len=512, chunk_words=250, lr_c=50),   # https://huggingface.co/pritamdeka/S-PubMedBert-MS-MARCO
+    'biomedbert': dict(name='microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext', max_len=512, chunk_words=250, lr_c=50),   # https://huggingface.co/microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltex, uncased
+    'biobert': dict(name='dmis-lab/biobert-base-cased-v1.2', max_len=512, chunk_words=250, lr_c=50),   # https://huggingface.co/dmis-lab/biobert-base-cased-v1.2, cased
+    'mpnet': dict(name='sentence-transformers/all-mpnet-base-v2', max_len=384, chunk_words=200, lr_c=50),   # genérico, https://huggingface.co/sentence-transformers/all-mpnet-base-v2
+}
+
+BERT_CHOICE = 'spubmedbert' # mudar o nome para o embedding que se quer
+
+CACHE_DIR = DATA_DIR / '.cache'   # cache do embeddings
+OUT_DIR   = ROOT_DIR / 'outputs'  # matriz de confusao e erros
+_bert            = BERT_MODELS[BERT_CHOICE]
+BERT_MODEL       = _bert['name']
+BERT_MAX_LEN     = _bert['max_len']        # max de tokens
+BERT_CHUNK_WORDS = _bert['chunk_words']    # palavras por chunk
+BERT_LR_C        = _bert['lr_c']           # 1/L2
+
+# BERT_TEXT_COLS     = ['description', 'sample_name', 'transcription']
+# BERT_TEXT_COLS     = ['description', 'transcription']
+BERT_TEXT_COLS     = ['transcription']
+# BERT_TEXT_COLS     = ['description']
+# BERT_TEXT_COLS     = ['sample_name']
+
+BERT_BATCH         = 16
+BERT_WRITE_RESULTS = False  # True -> escreve results_bert.txt
 ...
 
 

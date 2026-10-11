@@ -1,0 +1,15 @@
+# pip install -r requirements.txt
+
+# modelos 1 e 2
+pandas==3.0.6
+numpy==2.5.3
+scikit-learn==1.9.1
+rapidfuzz==3.14.6
+
+# modelo 3
+sentence-transformers==6.1.0
+torch==2.14.1
+
+jupyter==1.1.1
+nbconvert==7.17.1
+matplotlib==3.11.2

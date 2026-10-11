@@ -12,6 +12,12 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install pandas==3.0.6 numpy==2.5.3 scikit-learn==1.9.1 rapidfuzz==3.14.6 jupyter matplotlib
 ```
+or
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
 
 
 ## How to run
