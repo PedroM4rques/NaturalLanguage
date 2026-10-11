@@ -6,13 +6,9 @@
 - scikit-learn 1.9.1
 - rapidfuzz 3.14.6
 - jupyter (to run the cleaning notebook) and matplotlib (only for the exploration notebook)
+- sentence-transformers 6.1.0
+- torch 2.14.1
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install pandas==3.0.6 numpy==2.5.3 scikit-learn==1.9.1 rapidfuzz==3.14.6 jupyter matplotlib
-```
-or
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
@@ -47,7 +43,7 @@ This step rewrites `data/train.csv` and `data/test.csv` in place. Always run ste
 ```bash
 python 1.rules_based+fallback.py
 python 2.log_regression.py
-python 3.*.py
+python 3.bert.py
 ```
 
 > **The best model is `2.log_regression.py`.** 
