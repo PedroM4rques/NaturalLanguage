@@ -37,7 +37,7 @@ BERT_MODELS = {
     'mpnet': dict(name='sentence-transformers/all-mpnet-base-v2', max_len=384, chunk_words=200, lr_c=50),   # genérico, https://huggingface.co/sentence-transformers/all-mpnet-base-v2
 }
 
-BERT_CHOICE = 'spubmedbert' # mudar o nome para o embedding que se quer
+BERT_CHOICE = 'biomedbert' # mudar o nome para o embedding que se quer
 
 CACHE_DIR = DATA_DIR / '.cache'   # cache do embeddings
 OUT_DIR   = ROOT_DIR / 'outputs'  # matriz de confusao e erros
@@ -48,8 +48,10 @@ BERT_CHUNK_WORDS = _bert['chunk_words']    # palavras por chunk
 BERT_LR_C        = _bert['lr_c']           # 1/L2
 
 # BERT_TEXT_COLS     = ['description', 'sample_name', 'transcription']
+BERT_TEXT_COLS     = ['description', 'sample_name', 'transcription', 'keywords']
 # BERT_TEXT_COLS     = ['description', 'transcription']
-BERT_TEXT_COLS     = ['transcription']
+# BERT_TEXT_COLS     = ['transcription']
+# BERT_TEXT_COLS     = ['keywords']
 # BERT_TEXT_COLS     = ['description']
 # BERT_TEXT_COLS     = ['sample_name']
 
