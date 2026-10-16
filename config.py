@@ -63,9 +63,38 @@ BERT_WRITE_RESULTS = False  # True -> escreve results_bert.txt
 # aux functions
 
 def restore_label_case(pred: pd.Series) -> pd.Series:
-    """Mapeia as labels lowercased (clean_data) de volta para a capitalização original do raw train (ex: 'general medicine' -> 'General Medicine')."""
 
     raw_labels = pd.read_csv(RAW_TRAIN_PATH, sep=';')['medical_specialty'].dropna().str.strip()
     mapping    = {label.lower(): label for label in raw_labels}
 
     return pred.map(mapping)
+
+
+def plot_confusion_matrix(y_true: pd.Series, y_pred: pd.Series, classes: list[str], title: str, filename: str) -> None:
+
+    import matplotlib.pyplot as plt
+    from sklearn.metrics import confusion_matrix
+
+    cm   = pd.DataFrame(confusion_matrix(y_true, y_pred, labels=classes), index=classes, columns=classes)
+    norm = cm.div(cm.sum(axis=1), axis=0)   # cor = fracao da linha (recall), senao a surgery apaga as outras classes
+
+    fig, ax = plt.subplots(figsize=(9, 8))
+    im = ax.imshow(norm.values, cmap='Blues', vmin=0, vmax=1)
+    fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04, label='Fraction of true class')
+
+    ax.set_xticks(range(len(classes)), classes, rotation=45, ha='right')
+    ax.set_yticks(range(len(classes)), classes)
+    ax.set_xlabel('Predicted')
+    ax.set_ylabel('True')
+    ax.set_title(title)
+
+    for i in range(len(classes)):
+        for j in range(len(classes)):
+            v = cm.iat[i, j]
+            if v: ax.text(j, i, v, ha='center', va='center', fontsize=8, color='white' if norm.iat[i, j] > 0.5 else '#333')
+
+    OUT_DIR.mkdir(exist_ok=True)
+    fig.savefig(OUT_DIR / filename, dpi=200, bbox_inches='tight')
+    plt.close(fig)
+
+    print(f"Confusion matrix -> outputs/{filename}")

@@ -48,6 +48,9 @@ def main():
     below = f1[f1 < 0.25]
     print(f"\n{'FAIL' if len(below) else 'OK'}: {len(below)} class(es) with F1 below 25%{': ' + ', '.join(below.index) if len(below) else ''}")
 
+    print()
+    config.plot_confusion_matrix(y, pred, classes, f'Logistic regression - confusion matrix ({config.CV_FOLDS}-fold CV)', 'lr_confusion_matrix.png')
+
 
     # results.txt
     model = build_model().fit(X_train, y)

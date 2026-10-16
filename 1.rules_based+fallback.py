@@ -60,6 +60,9 @@ def main():
     below = f1[f1 < 0.25]
     print(f"\n{'FAIL' if len(below) else 'OK'}: {len(below)} class(es) with F1 below 25%{': ' + ', '.join(below.index) if len(below) else ''}")
 
+    print()
+    config.plot_confusion_matrix(y, out['pred'], classes, f"Rules-based + fallback - confusion matrix (train set)", 'rules_confusion_matrix.png')
+
     # results.txt
     test_out = predict(test_df, classes, most_common)
     config.restore_label_case(test_out['pred']).to_csv(config.RESULTS_PATH, index=False, header=False)
