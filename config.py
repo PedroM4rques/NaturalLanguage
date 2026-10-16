@@ -47,8 +47,8 @@ BERT_MAX_LEN     = _bert['max_len']        # max de tokens
 BERT_CHUNK_WORDS = _bert['chunk_words']    # palavras por chunk
 BERT_LR_C        = _bert['lr_c']           # 1/L2
 
-# BERT_TEXT_COLS     = ['description', 'sample_name', 'transcription']
-BERT_TEXT_COLS     = ['description', 'sample_name', 'transcription', 'keywords']
+BERT_TEXT_COLS     = ['description', 'sample_name', 'transcription']
+# BERT_TEXT_COLS     = ['description', 'sample_name', 'transcription', 'keywords']
 # BERT_TEXT_COLS     = ['description', 'transcription']
 # BERT_TEXT_COLS     = ['transcription']
 # BERT_TEXT_COLS     = ['keywords']
@@ -57,6 +57,9 @@ BERT_TEXT_COLS     = ['description', 'sample_name', 'transcription', 'keywords']
 
 BERT_BATCH         = 16
 BERT_WRITE_RESULTS = False  # True -> escreve results_bert.txt
+
+BERT_ENSEMBLE        = ['clinicalbert', 'biomedbert', 'spubmedbert', 'mpnet', 'biobert']
+BERT_ENSEMBLE_METHOD = 'max'    # 'mean' (media das probabilidades) ou 'max' (o modelo mais confiante)
 ...
 
 
