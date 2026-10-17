@@ -1,2 +1,0 @@
-Accuracy:         0.4757
-Macro F1:         0.5024
